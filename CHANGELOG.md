@@ -6,6 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1902cc2...main`][1902cc2...main].
+For a full diff see [`7039e81...main`][7039e81...main].
 
-[1902cc2...main]: https://github.com/ergebnis/twig-front-matter/compare/1902cc2...main
+[7039e81...main]: https://github.com/ergebnis/twig-front-matter/compare/7039e81...main
