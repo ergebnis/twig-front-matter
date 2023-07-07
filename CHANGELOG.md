@@ -12,10 +12,12 @@ For a full diff see [`7039e81...main`][7039e81...main].
 
 - Implemented `Expression\Name` as a value object ([#1]), by [@localheinz]
 - Implemented `Expression\Value` as a value object ([#2]), by [@localheinz]
+- Implemented `Expression\Assignment` as a value object ([#3]), by [@localheinz]
 
 [7039e81...main]: https://github.com/ergebnis/twig-front-matter/compare/7039e81...main
 
 [#1]: https://github.com/ergebnis/twig-front-matter/pull/1
 [#2]: https://github.com/ergebnis/twig-front-matter/pull/2
+[#3]: https://github.com/ergebnis/twig-front-matter/pull/3
 
 [@localheinz]: https://github.com/localheinz
