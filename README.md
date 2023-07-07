@@ -156,6 +156,7 @@ echo $frontMatterConverter->convert($data);
 Adjust your `config/services.php` as follows to register a `FrontMatterLoader` with a `Converter\ToMultipleAssignmentsFrontMatterConverter`:
 
 ```php
+<?php
 
 declare(strict_types=1);
 
