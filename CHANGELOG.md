@@ -15,6 +15,7 @@ For a full diff see [`7039e81...main`][7039e81...main].
 - Implemented `Expression\Assignment` as a value object ([#3]), by [@localheinz]
 - Implemented `Converter\NullFrontMatterConverter` ([#4]), by [@localheinz]
 - Implemented `Converter\ToSingleAssignmentFrontMatterConverter` ([#5]), by [@localheinz]
+- Implemented `Converter\ToMultipleAssignmentsFrontMatterConverter` ([#6]), by [@localheinz]
 
 [7039e81...main]: https://github.com/ergebnis/twig-front-matter/compare/7039e81...main
 
@@ -23,5 +24,6 @@ For a full diff see [`7039e81...main`][7039e81...main].
 [#3]: https://github.com/ergebnis/twig-front-matter/pull/3
 [#4]: https://github.com/ergebnis/twig-front-matter/pull/4
 [#5]: https://github.com/ergebnis/twig-front-matter/pull/5
+[#6]: https://github.com/ergebnis/twig-front-matter/pull/6
 
 [@localheinz]: https://github.com/localheinz
