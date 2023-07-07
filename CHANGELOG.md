@@ -16,6 +16,7 @@ For a full diff see [`7039e81...main`][7039e81...main].
 - Implemented `Converter\NullFrontMatterConverter` ([#4]), by [@localheinz]
 - Implemented `Converter\ToSingleAssignmentFrontMatterConverter` ([#5]), by [@localheinz]
 - Implemented `Converter\ToMultipleAssignmentsFrontMatterConverter` ([#6]), by [@localheinz]
+- Implemented `FrontMatterLoader` ([#7]), by [@localheinz]
 
 [7039e81...main]: https://github.com/ergebnis/twig-front-matter/compare/7039e81...main
 
@@ -25,5 +26,6 @@ For a full diff see [`7039e81...main`][7039e81...main].
 [#4]: https://github.com/ergebnis/twig-front-matter/pull/4
 [#5]: https://github.com/ergebnis/twig-front-matter/pull/5
 [#6]: https://github.com/ergebnis/twig-front-matter/pull/6
+[#7]: https://github.com/ergebnis/twig-front-matter/pull/7
 
 [@localheinz]: https://github.com/localheinz
