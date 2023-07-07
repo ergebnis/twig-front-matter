@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/twig-front-matter
  */
 
-namespace Converter;
+namespace Ergebnis\Twig\FrontMatter\Test\Unit\Converter;
 
 use Ergebnis\Twig\FrontMatter\Converter;
 use PHPUnit\Framework;
