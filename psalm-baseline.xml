@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.13.1@086b94371304750d1c673315321a55d15fc59015">
+  <file src="src/Converter/ToMultipleAssignmentsFrontMatterConverter.php">
+    <MixedArgumentTypeCoercion>
+      <code>$key</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code>$value</code>
+    </MixedAssignment>
+  </file>
   <file src="src/Expression/Value.php">
     <MixedAssignment>
       <code>$raw</code>
@@ -10,6 +18,16 @@
       <code>$data</code>
     </MixedArgument>
     <MixedAssignment>
+      <code>$data</code>
+    </MixedAssignment>
+  </file>
+  <file src="test/Unit/Converter/ToMultipleAssignmentsFrontMatterConverterTest.php">
+    <MixedArgument>
+      <code>$data</code>
+      <code>$data</code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code>$data</code>
       <code>$data</code>
     </MixedAssignment>
   </file>
