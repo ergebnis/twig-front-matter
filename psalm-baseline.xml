@@ -13,6 +13,16 @@
       <code>$data</code>
     </MixedAssignment>
   </file>
+  <file src="test/Unit/Converter/ToSingleAssignmentFrontMatterConverterTest.php">
+    <MixedArgument>
+      <code>$data</code>
+      <code>$data</code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code>$data</code>
+      <code>$data</code>
+    </MixedAssignment>
+  </file>
   <file src="test/Unit/Expression/NameTest.php">
     <PossiblyUnusedMethod>
       <code>provideInvalidValue</code>
