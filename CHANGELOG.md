@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.0.1...main`][1.0.1...main].
+For a full diff see [`1.1.0...main`][1.1.0...main].
+
+## [`1.1.0`][1.1.0]
+
+For a full diff see [`1.0.1...1.1.0`][1.0.1...1.1.0].
 
 ### Changed
 
@@ -37,10 +41,12 @@ For a full diff see [`7039e81...1.0.0`][7039e81...1.0.0].
 
 [1.0.0]: https://github.com/ergebnis/twig-front-matter/releases/tag/1.0.0
 [1.0.1]: https://github.com/ergebnis/twig-front-matter/releases/tag/1.0.1
+[1.1.0]: https://github.com/ergebnis/twig-front-matter/releases/tag/1.1.0
 
 [7039e81...1.0.0]: https://github.com/ergebnis/twig-front-matter/compare/7039e81...1.0.0
 [1.0.0...1.0.1]: https://github.com/ergebnis/twig-front-matter/compare/1.0.0...1.0.1
-[1.0.1...main]: https://github.com/ergebnis/twig-front-matter/compare/1.0.1...main
+[1.0.1...1.1.0]: https://github.com/ergebnis/twig-front-matter/compare/1.0.1...1.1.0
+[1.1.0...main]: https://github.com/ergebnis/twig-front-matter/compare/1.1.0...main
 
 [#1]: https://github.com/ergebnis/twig-front-matter/pull/1
 [#2]: https://github.com/ergebnis/twig-front-matter/pull/2
