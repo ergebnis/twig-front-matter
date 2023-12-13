@@ -12,7 +12,7 @@
 [![Total Downloads](https://poser.pugx.org/ergebnis/twig-front-matter/downloads)](https://packagist.org/packages/ergebnis/twig-front-matter)
 [![Monthly Downloads](http://poser.pugx.org/ergebnis/twig-front-matter/d/monthly)](https://packagist.org/packages/ergebnis/twig-front-matter)
 
-This package provides a [Twig](https://twig.symfony.com) loader for files with [YAML front-matter](https://github.com/ergebnis/front-matter).
+This project provides a [`composer`](https://getcomposer.org) package with a [Twig](https://twig.symfony.com) loader for files with [YAML front-matter](https://github.com/ergebnis/front-matter).
 
 ## Installation
 
@@ -26,7 +26,7 @@ composer require ergebnis/twig-front-matter
 
 ### Loading Twig templates with the `FrontMatterLoader`
 
-This package ships with a [`FrontMatterLoader`](/src/FrontMatterLoader.php) that you can use to load Twig templates with YAML front-matter.
+This project ships with a [`FrontMatterLoader`](/src/FrontMatterLoader.php) that you can use to load Twig templates with YAML front-matter.
 
 The `FrontMatterLoader`
 
@@ -59,7 +59,7 @@ object:
 
 ### Converting YAML front-matter to Twig assignments with the `Converter/ToMultipleAssignmentsFrontMatterConverter`
 
-This package ships with a [`Converter/ToMultipleAssignmentsFrontMatterConverter.php`](/src/Converter/ToMultipleAssignmentsFrontMatterConverter.php) that you can use to convert the YAML front-matter to multiple Twig assignments.
+This project ships with a [`Converter/ToMultipleAssignmentsFrontMatterConverter.php`](/src/Converter/ToMultipleAssignmentsFrontMatterConverter.php) that you can use to convert the YAML front-matter to multiple Twig assignments.
 
 The example below will convert the parsed YAML front-matter data to multiple Twig assignments that will assign data to Twig variables with force:
 
@@ -109,7 +109,7 @@ echo $frontMatterConverter->convert($data);
 
 ### Converting YAML front-matter to a Twig assignment with the `Converter/ToSingleAssignmentFrontMatterConverter`
 
-This package ships with a [`Converter/ToSingleAssignmentFrontMatterConverter.php`](/src/Converter/ToSingleAssignmentFrontMatterConverter.php) that you can use to convert the YAML front-matter to a single Twig assignment.
+This project ships with a [`Converter/ToSingleAssignmentFrontMatterConverter.php`](/src/Converter/ToSingleAssignmentFrontMatterConverter.php) that you can use to convert the YAML front-matter to a single Twig assignment.
 
 The example below will convert the parsed YAML front-matter data to a single Twig assignment that will assign data to a Twig variable with force:
 
@@ -195,35 +195,35 @@ return static function (DependencyInjection\Loader\Configurator\ContainerConfigu
 
 ## Changelog
 
-The maintainers of this package record notable changes to this project in a [changelog](CHANGELOG.md).
+The maintainers of this project record notable changes to this project in a [changelog](CHANGELOG.md).
 
 ## Contributing
 
-The maintainers of this package suggest following the [contribution guide](.github/CONTRIBUTING.md).
+The maintainers of this project suggest following the [contribution guide](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-The maintainers of this package ask contributors to follow the [code of conduct](.github/CODE_OF_CONDUCT.md).
+The maintainers of this project ask contributors to follow the [code of conduct](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## General Support Policy
 
-The maintainers of this package provide limited support.
+The maintainers of this project provide limited support.
 
-You can support the maintenance of this package by [sponsoring @localheinz](https://github.com/sponsors/localheinz) or [requesting an invoice for services related to this package](mailto:am@localheinz.com?subject=ergebnis/twig-front-matter:%20Requesting%20invoice%20for%20services).
+You can support the maintenance of this project by [sponsoring @localheinz](https://github.com/sponsors/localheinz) or [requesting an invoice for services related to this project](mailto:am@localheinz.com?subject=ergebnis/twig-front-matter:%20Requesting%20invoice%20for%20services).
 
 ## PHP Version Support Policy
 
-This package supports PHP versions with [active support](https://www.php.net/supported-versions.php).
+This project supports PHP versions with [active and security support](https://www.php.net/supported-versions.php).
 
-The maintainers of this package add support for a PHP version following its initial release and drop support for a PHP version when it has reached its end of active support.
+The maintainers of this project add support for a PHP version following its initial release and drop support for a PHP version when it has reached the end of security support.
 
 ## Security Policy
 
-This package has a [security policy](.github/SECURITY.md).
+This project has a [security policy](.github/SECURITY.md).
 
 ## License
 
-This package uses the [MIT license](LICENSE.md).
+This project uses the [MIT license](LICENSE.md).
 
 ## Social
 
