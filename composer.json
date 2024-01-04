@@ -1,8 +1,14 @@
 {
   "name": "ergebnis/twig-front-matter",
-  "description": "Provides a GitHub repository template for a PHP library, using GitHub Actions.",
+  "description": "Provides a Twig loader for files with YAML front-matter.",
   "license": "MIT",
   "type": "library",
+  "keywords": [
+    "twig",
+    "loader",
+    "yaml",
+    "front-matter"
+  ],
   "authors": [
     {
       "name": "Andreas Möller",

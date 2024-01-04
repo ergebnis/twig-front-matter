@@ -77,7 +77,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: ":seedling: + :eyes: Provides a Twig loader for files with YAML front-matter."
+  description: "🌱 + 👀 Provides a composer package with a Twig loader for files with YAML front-matter."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
   has_discussions: false
@@ -92,4 +92,4 @@ repository:
 
   # https://docs.github.com/en/rest/reference/repos#replace-all-repository-topics
 
-  topics: "php, twig, front-matter"
+  topics: "php, twig, loader, yaml, front-matter"
