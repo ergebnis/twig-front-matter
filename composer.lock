@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9b0093820dfa25ae6931960b9534c43",
+    "content-hash": "14cf85172c52404ed6d40b475ec15b65",
     "packages": [
         {
             "name": "ergebnis/front-matter",
