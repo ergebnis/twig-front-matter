@@ -25,9 +25,9 @@ final class NameTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
+    #[Framework\Attributes\DataProvider('provideInvalidValue')]
     #[Framework\Attributes\DataProviderExternal(DataProvider\StringProvider::class, 'blank')]
     #[Framework\Attributes\DataProviderExternal(DataProvider\StringProvider::class, 'empty')]
-    #[Framework\Attributes\DataProvider('provideInvalidValue')]
     public function testFromStringRejectsInvalidValue(string $value): void
     {
         $this->expectException(Exception\InvalidName::class);
