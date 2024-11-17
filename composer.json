@@ -25,7 +25,7 @@
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
     "ergebnis/front-matter": "^3.1.0",
-    "twig/twig": "^3.4.3"
+    "twig/twig": "^3.14.1"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.43.0",
