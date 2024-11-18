@@ -6,7 +6,6 @@
 [![Renew](https://github.com/ergebnis/twig-front-matter/workflows/Renew/badge.svg)](https://github.com/ergebnis/twig-front-matter/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/twig-front-matter/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/twig-front-matter)
-[![Type Coverage](https://shepherd.dev/github/ergebnis/twig-front-matter/coverage.svg)](https://shepherd.dev/github/ergebnis/twig-front-matter)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/twig-front-matter/v/stable)](https://packagist.org/packages/ergebnis/twig-front-matter)
 [![Total Downloads](https://poser.pugx.org/ergebnis/twig-front-matter/downloads)](https://packagist.org/packages/ergebnis/twig-front-matter)
