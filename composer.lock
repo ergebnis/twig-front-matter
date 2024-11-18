@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "757be5cf5ae00407a2a301ff4b134431",
+    "content-hash": "27f4363e97c33b23d60f436819010918",
     "packages": [
         {
             "name": "ergebnis/front-matter",
@@ -7736,7 +7736,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
+        "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
     },
     "platform-dev": {},
     "platform-overrides": {
