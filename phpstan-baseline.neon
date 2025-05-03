@@ -25,12 +25,6 @@ parameters:
 			path: src/Converter/ToSingleAssignmentFrontMatterConverter.php
 
 		-
-			message: '#^Class "Ergebnis\\Twig\\FrontMatter\\Exception\\InvalidName" is not allowed to extend "InvalidArgumentException"\.$#'
-			identifier: ergebnis.noExtends
-			count: 1
-			path: src/Exception/InvalidName.php
-
-		-
 			message: '#^Method Ergebnis\\Twig\\FrontMatter\\Expression\\Value\:\:toString\(\) should return string but returns string\|false\.$#'
 			identifier: return.type
 			count: 1
