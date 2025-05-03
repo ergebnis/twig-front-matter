@@ -1,82 +1,56 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Converter\\\\FrontMatterConverter\\:\\:convert\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: '#^Method Ergebnis\\Twig\\FrontMatter\\Converter\\FrontMatterConverter\:\:convert\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Converter/FrontMatterConverter.php
 
 		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Converter\\\\NullFrontMatterConverter\\:\\:convert\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: '#^Method Ergebnis\\Twig\\FrontMatter\\Converter\\NullFrontMatterConverter\:\:convert\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Converter/NullFrontMatterConverter.php
 
 		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Converter\\\\ToMultipleAssignmentsFrontMatterConverter\\:\\:convert\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: '#^Method Ergebnis\\Twig\\FrontMatter\\Converter\\ToMultipleAssignmentsFrontMatterConverter\:\:convert\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Converter/ToMultipleAssignmentsFrontMatterConverter.php
 
 		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Converter\\\\ToSingleAssignmentFrontMatterConverter\\:\\:convert\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: '#^Method Ergebnis\\Twig\\FrontMatter\\Converter\\ToSingleAssignmentFrontMatterConverter\:\:convert\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Converter/ToSingleAssignmentFrontMatterConverter.php
 
 		-
-			message: "#^Class \"Ergebnis\\\\Twig\\\\FrontMatter\\\\Exception\\\\InvalidName\" is not allowed to extend \"InvalidArgumentException\"\\.$#"
+			message: '#^Class "Ergebnis\\Twig\\FrontMatter\\Exception\\InvalidName" is not allowed to extend "InvalidArgumentException"\.$#'
+			identifier: ergebnis.noExtends
 			count: 1
 			path: src/Exception/InvalidName.php
 
 		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Expression\\\\Value\\:\\:toString\\(\\) should return string but returns string\\|false\\.$#"
+			message: '#^Method Ergebnis\\Twig\\FrontMatter\\Expression\\Value\:\:toString\(\) should return string but returns string\|false\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Expression/Value.php
 
 		-
-			message: "#^Parameter \\#1 \\$data of method Ergebnis\\\\Twig\\\\FrontMatter\\\\Converter\\\\NullFrontMatterConverter\\:\\:convert\\(\\) expects array, mixed given\\.$#"
+			message: '#^Parameter \#1 \$data of method Ergebnis\\Twig\\FrontMatter\\Converter\\NullFrontMatterConverter\:\:convert\(\) expects array, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: test/Unit/Converter/NullFrontMatterConverterTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Test\\\\Unit\\\\Converter\\\\ToMultipleAssignmentsFrontMatterConverterTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Converter/ToMultipleAssignmentsFrontMatterConverterTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method Ergebnis\\\\Twig\\\\FrontMatter\\\\Converter\\\\ToMultipleAssignmentsFrontMatterConverter\\:\\:convert\\(\\) expects array, mixed given\\.$#"
+			message: '#^Parameter \#1 \$data of method Ergebnis\\Twig\\FrontMatter\\Converter\\ToMultipleAssignmentsFrontMatterConverter\:\:convert\(\) expects array, mixed given\.$#'
+			identifier: argument.type
 			count: 2
 			path: test/Unit/Converter/ToMultipleAssignmentsFrontMatterConverterTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Test\\\\Unit\\\\Converter\\\\ToSingleAssignmentFrontMatterConverterTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Converter/ToSingleAssignmentFrontMatterConverterTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method Ergebnis\\\\Twig\\\\FrontMatter\\\\Converter\\\\ToSingleAssignmentFrontMatterConverter\\:\\:convert\\(\\) expects array, mixed given\\.$#"
+			message: '#^Parameter \#1 \$data of method Ergebnis\\Twig\\FrontMatter\\Converter\\ToSingleAssignmentFrontMatterConverter\:\:convert\(\) expects array, mixed given\.$#'
+			identifier: argument.type
 			count: 2
 			path: test/Unit/Converter/ToSingleAssignmentFrontMatterConverterTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Test\\\\Unit\\\\Exception\\\\InvalidNameTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidNameTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Test\\\\Unit\\\\Expression\\\\AssignmentTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Expression/AssignmentTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Test\\\\Unit\\\\Expression\\\\NameTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Expression/NameTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Test\\\\Unit\\\\Expression\\\\ValueTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Expression/ValueTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Test\\\\Unit\\\\FrontMatterLoaderTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/FrontMatterLoaderTest.php
 
