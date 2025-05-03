@@ -46,8 +46,8 @@ final class FrontMatterLoaderTest extends Framework\TestCase
 
         $frontMatterLoader = new FrontMatterLoader(
             $originalLoader,
-            $this->createStub(FrontMatter\Parser::class),
-            $this->createStub(Converter\FrontMatterConverter::class),
+            self::createStub(FrontMatter\Parser::class),
+            self::createStub(Converter\FrontMatterConverter::class),
         );
 
         self::assertSame($exists, $frontMatterLoader->exists($name));
@@ -69,8 +69,8 @@ final class FrontMatterLoaderTest extends Framework\TestCase
 
         $frontMatterLoader = new FrontMatterLoader(
             $originalLoader,
-            $this->createStub(FrontMatter\Parser::class),
-            $this->createStub(Converter\FrontMatterConverter::class),
+            self::createStub(FrontMatter\Parser::class),
+            self::createStub(Converter\FrontMatterConverter::class),
         );
 
         self::assertSame($cacheKey, $frontMatterLoader->getCacheKey($name));
@@ -96,8 +96,8 @@ final class FrontMatterLoaderTest extends Framework\TestCase
 
         $frontMatterLoader = new FrontMatterLoader(
             $originalLoader,
-            $this->createStub(FrontMatter\Parser::class),
-            $this->createStub(Converter\FrontMatterConverter::class),
+            self::createStub(FrontMatter\Parser::class),
+            self::createStub(Converter\FrontMatterConverter::class),
         );
 
         self::assertSame($isFresh, $frontMatterLoader->isFresh($name, $time));
@@ -125,7 +125,7 @@ TWIG
         $frontMatterLoader = new FrontMatterLoader(
             $originalLoader,
             new FrontMatter\YamlParser(),
-            $this->createStub(Converter\FrontMatterConverter::class),
+            self::createStub(Converter\FrontMatterConverter::class),
         );
 
         self::assertSame($originalSource, $frontMatterLoader->getSourceContext($name));
