@@ -76,11 +76,6 @@ parameters:
 			path: test/Unit/Expression/ValueTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:createStub\\(\\)\\.$#"
-			count: 7
-			path: test/Unit/FrontMatterLoaderTest.php
-
-		-
 			message: "#^Method Ergebnis\\\\Twig\\\\FrontMatter\\\\Test\\\\Unit\\\\FrontMatterLoaderTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/FrontMatterLoaderTest.php
