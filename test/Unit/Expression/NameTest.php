@@ -38,7 +38,7 @@ final class NameTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: string}>
      */
-    public static function provideInvalidValue(): \Generator
+    public static function provideInvalidValue(): iterable
     {
         foreach (self::invalidCharacters() as $name => $character) {
             $key = \sprintf(
@@ -105,7 +105,7 @@ final class NameTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: string}>
      */
-    public static function provideValidValue(): \Generator
+    public static function provideValidValue(): iterable
     {
         $values = [
             'contains-number' => 'foo9000bar',
