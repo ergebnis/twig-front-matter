@@ -28,7 +28,7 @@
     "twig/twig": "^3.14.1"
   },
   "require-dev": {
-    "ergebnis/composer-normalize": "^2.47.0",
+    "ergebnis/composer-normalize": "^2.48.1",
     "ergebnis/data-provider": "^3.5.0",
     "ergebnis/license": "^2.7.0",
     "ergebnis/php-cs-fixer-config": "^6.53.0",
