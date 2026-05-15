@@ -1,9 +1,9 @@
 # twig-front-matter
 
-[![Integrate](https://github.com/ergebnis/twig-front-matter/workflows/Integrate/badge.svg)](https://github.com/ergebnis/twig-front-matter/actions)
-[![Merge](https://github.com/ergebnis/twig-front-matter/workflows/Merge/badge.svg)](https://github.com/ergebnis/twig-front-matter/actions)
-[![Release](https://github.com/ergebnis/twig-front-matter/workflows/Release/badge.svg)](https://github.com/ergebnis/twig-front-matter/actions)
-[![Renew](https://github.com/ergebnis/twig-front-matter/workflows/Renew/badge.svg)](https://github.com/ergebnis/twig-front-matter/actions)
+[![Integrate](https://github.com/ergebnis/twig-front-matter/actions/workflows/integrate.yaml/badge.svg?branch=main)](https://github.com/ergebnis/twig-front-matter/actions/workflows/integrate.yaml)
+[![Merge](https://github.com/ergebnis/twig-front-matter/actions/workflows/merge.yaml/badge.svg)](https://github.com/ergebnis/twig-front-matter/actions/workflows/merge.yaml)
+[![Release](https://github.com/ergebnis/twig-front-matter/actions/workflows/release.yaml/badge.svg)](https://github.com/ergebnis/twig-front-matter/actions/workflows/release.yaml)
+[![Renew](https://github.com/ergebnis/twig-front-matter/actions/workflows/renew.yaml/badge.svg)](https://github.com/ergebnis/twig-front-matter/actions/workflows/renew.yaml)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/twig-front-matter/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/twig-front-matter)
 
