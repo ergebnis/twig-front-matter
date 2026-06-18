@@ -12,6 +12,10 @@ For a full diff see [`1.3.0...main`][1.3.0...main].
 
 - Added support for PHP 8.5 ([#431]), by [@localheinz]
 
+### Security
+
+- Required `twig/twig:^3.27.0` to address security vulnerability advisories ([#445]), by [@localheinz]
+
 ## [`1.3.0`][1.3.0]
 
 For a full diff see [`1.2.0...1.3.0`][1.2.0...1.3.0].
@@ -85,5 +89,6 @@ For a full diff see [`7039e81...1.0.0`][7039e81...1.0.0].
 [#275]: https://github.com/ergebnis/twig-front-matter/pull/275
 [#343]: https://github.com/ergebnis/twig-front-matter/pull/343
 [#431]: https://github.com/ergebnis/twig-front-matter/pull/431
+[#445]: https://github.com/ergebnis/twig-front-matter/pull/445
 
 [@localheinz]: https://github.com/localheinz
