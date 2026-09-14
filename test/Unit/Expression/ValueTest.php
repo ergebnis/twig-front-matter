@@ -136,7 +136,7 @@ TWIG;
 
         $expected = \json_encode(
             $raw,
-            \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE,
+            \JSON_UNESCAPED_LINE_TERMINATORS | \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE,
         );
 
         self::assertSame($expected, $value->toString());
@@ -221,6 +221,84 @@ TWIG,
         }
 
         self::assertSame([], $deprecations);
+    }
+
+    #[Framework\Attributes\DataProvider('provideStringWithCharactersThatJsonEncodesWithEscapeSequencesNotSupportedByTwig')]
+    public function testFromRawReturnsValueThatRendersWithoutDeprecationsWhenRawIsStringWithCharactersThatJsonEncodesWithEscapeSequencesNotSupportedByTwig(string $raw): void
+    {
+        $value = Expression\Value::fromRaw($raw);
+
+        $environment = new Environment(
+            new Loader\ArrayLoader([
+                'template.html.twig' => <<<TWIG
+{% set foo = {$value->toString()} %}{{ foo }}
+TWIG,
+            ]),
+            [
+                'autoescape' => false,
+            ],
+        );
+
+        $deprecations = [];
+
+        \set_error_handler(
+            static function (
+                int $level,
+                string $message,
+            ) use (&$deprecations): bool {
+                $deprecations[] = $message;
+
+                return true;
+            },
+            \E_USER_DEPRECATED,
+        );
+
+        try {
+            $rendered = $environment->render('template.html.twig');
+        } finally {
+            \restore_error_handler();
+        }
+
+        self::assertSame($raw, $rendered);
+        self::assertSame([], $deprecations);
+    }
+
+    /**
+     * @return \Generator<string, array{0: string}>
+     */
+    public static function provideStringWithCharactersThatJsonEncodesWithEscapeSequencesNotSupportedByTwig(): iterable
+    {
+        $faker = self::faker();
+
+        $characters = [
+            'backslash-followed-by-b' => '\b',
+            'backslash-followed-by-backslash-followed-by-u' => \sprintf(
+                '%s%su0041',
+                '\\',
+                '\\',
+            ),
+            'backslash-followed-by-u' => \sprintf(
+                '%su0041',
+                '\\',
+            ),
+            'line-separator' => "\u{2028}",
+            'paragraph-separator' => "\u{2029}",
+        ];
+
+        foreach (\range(0x00, 0x1F) as $codePoint) {
+            $characters[\sprintf('control-character-%02x', $codePoint)] = \chr($codePoint);
+        }
+
+        foreach ($characters as $key => $character) {
+            yield $key => [
+                \sprintf(
+                    '%s%s%s',
+                    $faker->word(),
+                    $character,
+                    $faker->word(),
+                ),
+            ];
+        }
     }
 
     public function testFromRawReturnsValueWhenRawIsStringWithUmlauts(): void

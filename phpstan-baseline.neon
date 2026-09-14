@@ -25,8 +25,14 @@ parameters:
 			path: src/Converter/ToSingleAssignmentFrontMatterConverter.php
 
 		-
-			message: '#^Method Ergebnis\\Twig\\FrontMatter\\Expression\\Value\:\:toString\(\) should return string but returns string\|false\.$#'
+			message: '#^Method Ergebnis\\Twig\\FrontMatter\\Expression\\Value\:\:toString\(\) should return string but returns string\|null\.$#'
 			identifier: return.type
+			count: 1
+			path: src/Expression/Value.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|false given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Expression/Value.php
 
