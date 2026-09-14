@@ -64,7 +64,7 @@ YAML;
 {% set date = (1464307200|date_modify('0sec')) %}
 {% set empty = null %}
 {% set multiline = "Multiple\nLine\nString\n" %}
-{% set object = { key: "value", datetime: (1605185652|date_modify('0sec')), values: { 0: "one", 1: "two" } } %}
+{% set object = { "key": "value", "datetime": (1605185652|date_modify('0sec')), "values": { 0: "one", 1: "two" } } %}
 TWIG;
 
         self::assertSame($expected, $frontMatterConverter->convert($data));
@@ -105,7 +105,7 @@ YAML;
 {% set date = date is defined ? date : (1464307200|date_modify('0sec')) %}
 {% set empty = empty is defined ? empty : null %}
 {% set multiline = multiline is defined ? multiline : "Multiple\nLine\nString\n" %}
-{% set object = object is defined ? object|merge({ key: "value", datetime: (1605185652|date_modify('0sec')), values: { 0: "one", 1: "two" } }) : { key: "value", datetime: (1605185652|date_modify('0sec')), values: { 0: "one", 1: "two" } } %}
+{% set object = object is defined ? object|merge({ "key": "value", "datetime": (1605185652|date_modify('0sec')), "values": { 0: "one", 1: "two" } }) : { "key": "value", "datetime": (1605185652|date_modify('0sec')), "values": { 0: "one", 1: "two" } } %}
 TWIG;
 
         self::assertSame($expected, $frontMatterConverter->convert($data));

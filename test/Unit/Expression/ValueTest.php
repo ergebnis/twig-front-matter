@@ -84,7 +84,7 @@ final class ValueTest extends Framework\TestCase
         $value = Expression\Value::fromRaw($raw);
 
         $expected = <<<'TWIG'
-{ bool-false: false, bool-true: true, dateTime: (1610817171|date_modify('0sec')), float: 3.14159, int: 9000, null: null, string: "foo" }
+{ "bool-false": false, "bool-true": true, "dateTime": (1610817171|date_modify('0sec')), "float": 3.14159, "int": 9000, "null": null, "string": "foo" }
 TWIG;
 
         self::assertSame($expected, $value->toString());
@@ -336,6 +336,57 @@ TWIG,
         ]);
 
         self::assertSame($raw, $rendered);
+    }
+
+    #[Framework\Attributes\DataProvider('provideKeyThatIsNotAValidTwigName')]
+    public function testFromRawReturnsValueThatRendersWhenRawIsArrayWithKeyThatIsNotAValidTwigName(string $key): void
+    {
+        $raw = [
+            $key => self::faker()->sentence(),
+        ];
+
+        $value = Expression\Value::fromRaw($raw);
+
+        $environment = new Environment(
+            new Loader\ArrayLoader([
+                'template.html.twig' => <<<TWIG
+{% set foo = {$value->toString()} %}{{ foo|json_encode|raw }}
+TWIG,
+            ]),
+            [
+                'autoescape' => false,
+            ],
+        );
+
+        $rendered = $environment->render('template.html.twig');
+
+        $decoded = \json_decode(
+            $rendered,
+            true,
+        );
+
+        self::assertSame($raw, $decoded);
+    }
+
+    /**
+     * @return \Generator<string, array{0: string}>
+     */
+    public static function provideKeyThatIsNotAValidTwigName(): iterable
+    {
+        $keys = [
+            'contains-colon' => 'og:image',
+            'contains-dash' => 'twitter-card',
+            'contains-double-quote' => 'foo"bar',
+            'contains-interpolation' => 'foo#{bar}',
+            'contains-space' => 'foo bar',
+            'starts-with-number' => '2fa',
+        ];
+
+        foreach ($keys as $name => $key) {
+            yield $name => [
+                $key,
+            ];
+        }
     }
 
     public function testFromRawReturnsValueWhenRawIsStringWithUmlauts(): void

@@ -61,7 +61,7 @@ YAML;
         );
 
         $expected = <<<TWIG
-{% set {$name} = { foo: "bar", number: 1234, pi: 3.14159, date: (1464307200|date_modify('0sec')), empty: null, invalid-key: "hmm", multiline: "Multiple\\nLine\\nString\\n", object: { key: "value", datetime: (1605185652|date_modify('0sec')), values: { 0: "one", 1: "two" } } } %}
+{% set {$name} = { "foo": "bar", "number": 1234, "pi": 3.14159, "date": (1464307200|date_modify('0sec')), "empty": null, "invalid-key": "hmm", "multiline": "Multiple\\nLine\\nString\\n", "object": { "key": "value", "datetime": (1605185652|date_modify('0sec')), "values": { 0: "one", 1: "two" } } } %}
 TWIG;
 
         self::assertSame($expected, $frontMatterConverter->convert($data));
@@ -101,7 +101,7 @@ YAML;
         );
 
         $expected = <<<TWIG
-{% set {$name} = {$name} is defined ? {$name}|merge({ foo: "bar", number: 1234, pi: 3.14159, date: (1464307200|date_modify('0sec')), empty: null, invalid-key: "hmm", multiline: "Multiple\\nLine\\nString\\n", object: { key: "value", datetime: (1605185652|date_modify('0sec')), values: { 0: "one", 1: "two" } } }) : { foo: "bar", number: 1234, pi: 3.14159, date: (1464307200|date_modify('0sec')), empty: null, invalid-key: "hmm", multiline: "Multiple\\nLine\\nString\\n", object: { key: "value", datetime: (1605185652|date_modify('0sec')), values: { 0: "one", 1: "two" } } } %}
+{% set {$name} = {$name} is defined ? {$name}|merge({ "foo": "bar", "number": 1234, "pi": 3.14159, "date": (1464307200|date_modify('0sec')), "empty": null, "invalid-key": "hmm", "multiline": "Multiple\\nLine\\nString\\n", "object": { "key": "value", "datetime": (1605185652|date_modify('0sec')), "values": { 0: "one", 1: "two" } } }) : { "foo": "bar", "number": 1234, "pi": 3.14159, "date": (1464307200|date_modify('0sec')), "empty": null, "invalid-key": "hmm", "multiline": "Multiple\\nLine\\nString\\n", "object": { "key": "value", "datetime": (1605185652|date_modify('0sec')), "values": { 0: "one", 1: "two" } } } %}
 TWIG;
 
         self::assertSame($expected, $frontMatterConverter->convert($data));
