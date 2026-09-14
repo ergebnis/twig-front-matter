@@ -301,6 +301,46 @@ TWIG,
         }
     }
 
+    public function testFromRawReturnsValueThatRendersWithoutInterpolationWhenRawIsStringWithInterpolation(): void
+    {
+        $faker = self::faker();
+
+        $name = \sprintf(
+            '%sVariable',
+            $faker->word(),
+        );
+
+        $raw = \sprintf(
+            '%s#{%s}%s',
+            $faker->word(),
+            $name,
+            $faker->word(),
+        );
+
+        $value = Expression\Value::fromRaw($raw);
+
+        $environment = new Environment(
+            new Loader\ArrayLoader([
+                'template.html.twig' => <<<TWIG
+{% set foo = {$value->toString()} %}{{ foo }}
+TWIG,
+            ]),
+            [
+                'autoescape' => false,
+                'strict_variables' => true,
+            ],
+        );
+
+        $rendered = $environment->render(
+            'template.html.twig',
+            [
+                $name => $faker->sentence(),
+            ],
+        );
+
+        self::assertSame($raw, $rendered);
+    }
+
     public function testFromRawReturnsValueWhenRawIsStringWithUmlauts(): void
     {
         $raw = 'My name is Andreas Möller, and I am a self-employed Software Engineer and Consultant from Berlin, Germany. What can I do for you?';

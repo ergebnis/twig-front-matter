@@ -70,16 +70,21 @@ TWIG;
         /**
          * Twig does not support the \b and \u escape sequences, so replace them with the equivalent \x escape sequences.
          *
+         * Twig interpolates #{ in double-quoted strings, so escape it.
+         *
          * @see https://twig.symfony.com/doc/3.x/templates.html#literals
+         * @see https://twig.symfony.com/doc/3.x/templates.html#string-interpolation
          */
         return \preg_replace(
             [
                 '/(?<!\\\\)((?:\\\\\\\\)*)\\\\b/',
                 '/(?<!\\\\)((?:\\\\\\\\)*)\\\\u00([0-9a-f]{2})/',
+                '/#\{/',
             ],
             [
                 '$1\\\\x08',
                 '$1\\\\x$2',
+                '\\\\#{',
             ],
             $json,
         );
