@@ -389,6 +389,41 @@ TWIG,
         }
     }
 
+    #[Framework\Attributes\DataProvider('provideFloatThatJsonCanNotEncode')]
+    public function testFromRawReturnsValueThatRendersWhenRawIsFloatThatJsonCanNotEncode(float $raw): void
+    {
+        $value = Expression\Value::fromRaw($raw);
+
+        $environment = new Environment(new Loader\ArrayLoader([
+            'template.html.twig' => <<<TWIG
+{% set foo = {$value->toString()} %}{{ foo }}
+TWIG,
+        ]));
+
+        $rendered = $environment->render('template.html.twig');
+
+        self::assertSame((string) $raw, $rendered);
+        self::assertFalse($value->isMergeable());
+    }
+
+    /**
+     * @return \Generator<string, array{0: float}>
+     */
+    public static function provideFloatThatJsonCanNotEncode(): iterable
+    {
+        $values = [
+            'infinity' => \INF,
+            'infinity-negative' => -\INF,
+            'not-a-number' => \NAN,
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
+
     public function testFromRawReturnsValueWhenRawIsStringWithUmlauts(): void
     {
         $raw = 'My name is Andreas Möller, and I am a self-employed Software Engineer and Consultant from Berlin, Germany. What can I do for you?';

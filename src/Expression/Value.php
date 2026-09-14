@@ -33,6 +33,25 @@ final class Value
     public function toString(): string
     {
         /**
+         * Twig has no literals for infinite and not-a-number floats, and json_encode() can not encode them, so use the corresponding constants.
+         *
+         * @see https://twig.symfony.com/doc/3.x/functions/constant.html
+         */
+        if (\is_float($this->raw)) {
+            if (\is_nan($this->raw)) {
+                return "constant('NAN')";
+            }
+
+            if (\is_infinite($this->raw)) {
+                if (-\INF === $this->raw) {
+                    return "(-constant('INF'))";
+                }
+
+                return "constant('INF')";
+            }
+        }
+
+        /**
          * @see https://twig.symfony.com/doc/3.x/filters/date_modify.html
          */
         if ($this->raw instanceof \DateTimeInterface) {
