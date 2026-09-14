@@ -4,13 +4,13 @@
 
 The following versions of `ergebnis/twig-front-matter` have active support:
 
-- `^1.4.0`
+- `^1.4.1`
 
 ## Unsupported Versions
 
 The following versions of `ergebnis/twig-front-matter` have reached their end of life:
 
-- `<1.4.0`
+- `<1.4.1`
 
 ## Reporting a Vulnerability
 
