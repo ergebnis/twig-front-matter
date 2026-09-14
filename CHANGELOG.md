@@ -11,6 +11,7 @@ For a full diff see [`1.4.0...main`][1.4.0...main].
 ### Fixed
 
 - Stopped escaping slashes in string values ([#495]), by [@localheinz]
+- Replaced escape sequences not supported by Twig in string values ([#505]), by [@localheinz]
 
 ## [`1.4.0`][1.4.0]
 
@@ -101,5 +102,6 @@ For a full diff see [`7039e81...1.0.0`][7039e81...1.0.0].
 [#431]: https://github.com/ergebnis/twig-front-matter/pull/431
 [#445]: https://github.com/ergebnis/twig-front-matter/pull/445
 [#495]: https://github.com/ergebnis/twig-front-matter/pull/495
+[#505]: https://github.com/ergebnis/twig-front-matter/pull/505
 
 [@localheinz]: https://github.com/localheinz

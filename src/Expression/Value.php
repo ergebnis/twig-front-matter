@@ -62,9 +62,26 @@ TWIG;
 TWIG;
         }
 
-        return \json_encode(
+        $json = \json_encode(
             $this->raw,
-            \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE,
+            \JSON_UNESCAPED_LINE_TERMINATORS | \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE,
+        );
+
+        /**
+         * Twig does not support the \b and \u escape sequences, so replace them with the equivalent \x escape sequences.
+         *
+         * @see https://twig.symfony.com/doc/3.x/templates.html#literals
+         */
+        return \preg_replace(
+            [
+                '/(?<!\\\\)((?:\\\\\\\\)*)\\\\b/',
+                '/(?<!\\\\)((?:\\\\\\\\)*)\\\\u00([0-9a-f]{2})/',
+            ],
+            [
+                '$1\\\\x08',
+                '$1\\\\x$2',
+            ],
+            $json,
         );
     }
 
