@@ -26,7 +26,7 @@ final class Name
      */
     public static function fromString(string $value): self
     {
-        if (1 !== \preg_match('/^[a-z][0-9a-z_]*$/i', $value)) {
+        if (1 !== \preg_match('/^[a-z][0-9a-z_]*\z/i', $value)) {
             throw Exception\InvalidName::invalid($value);
         }
 
