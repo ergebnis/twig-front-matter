@@ -30,6 +30,20 @@ final class Name
             throw Exception\InvalidName::invalid($value);
         }
 
+        /**
+         * Twig does not allow assigning a value to these names, regardless of case.
+         */
+        $reservedNames = [
+            'false',
+            'none',
+            'null',
+            'true',
+        ];
+
+        if (\in_array(\strtolower($value), $reservedNames, true)) {
+            throw Exception\InvalidName::reserved($value);
+        }
+
         return new self($value);
     }
 

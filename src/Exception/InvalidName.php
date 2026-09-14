@@ -22,4 +22,12 @@ final class InvalidName extends \InvalidArgumentException
             $value,
         ));
     }
+
+    public static function reserved(string $value): self
+    {
+        return new self(\sprintf(
+            'Value "%s" is reserved and can not be used as value for a parameter name.',
+            $value,
+        ));
+    }
 }

@@ -15,6 +15,7 @@ For a full diff see [`1.4.0...main`][1.4.0...main].
 - Escaped interpolation in string values ([#506]), by [@localheinz]
 - Quoted string keys in array values ([#507]), by [@localheinz]
 - Converted infinite and NaN float values ([#508]), by [@localheinz]
+- Rejected reserved names ([#509]), by [@localheinz]
 
 ## [`1.4.0`][1.4.0]
 
@@ -109,5 +110,6 @@ For a full diff see [`7039e81...1.0.0`][7039e81...1.0.0].
 [#506]: https://github.com/ergebnis/twig-front-matter/pull/506
 [#507]: https://github.com/ergebnis/twig-front-matter/pull/507
 [#508]: https://github.com/ergebnis/twig-front-matter/pull/508
+[#509]: https://github.com/ergebnis/twig-front-matter/pull/509
 
 [@localheinz]: https://github.com/localheinz

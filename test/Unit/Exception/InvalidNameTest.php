@@ -35,4 +35,18 @@ final class InvalidNameTest extends Framework\TestCase
 
         self::assertSame($expected, $exception->getMessage());
     }
+
+    public function testReservedReturnsException(): void
+    {
+        $value = self::faker()->word();
+
+        $exception = Exception\InvalidName::reserved($value);
+
+        $expected = \sprintf(
+            'Value "%s" is reserved and can not be used as value for a parameter name.',
+            $value,
+        );
+
+        self::assertSame($expected, $exception->getMessage());
+    }
 }
