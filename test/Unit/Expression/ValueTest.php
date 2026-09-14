@@ -331,12 +331,9 @@ TWIG,
             ],
         );
 
-        $rendered = $environment->render(
-            'template.html.twig',
-            [
-                $name => $faker->sentence(),
-            ],
-        );
+        $rendered = $environment->render('template.html.twig', [
+            $name => $faker->sentence(),
+        ]);
 
         self::assertSame($raw, $rendered);
     }
