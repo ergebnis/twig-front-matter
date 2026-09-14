@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.4.0...main`][1.4.0...main].
 
+### Fixed
+
+- Stopped escaping slashes in string values ([#495]), by [@localheinz]
+
 ## [`1.4.0`][1.4.0]
 
 For a full diff see [`1.3.0...1.4.0`][1.3.0...1.4.0].
@@ -96,5 +100,6 @@ For a full diff see [`7039e81...1.0.0`][7039e81...1.0.0].
 [#343]: https://github.com/ergebnis/twig-front-matter/pull/343
 [#431]: https://github.com/ergebnis/twig-front-matter/pull/431
 [#445]: https://github.com/ergebnis/twig-front-matter/pull/445
+[#495]: https://github.com/ergebnis/twig-front-matter/pull/495
 
 [@localheinz]: https://github.com/localheinz

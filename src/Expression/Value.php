@@ -64,7 +64,7 @@ TWIG;
 
         return \json_encode(
             $this->raw,
-            \JSON_UNESCAPED_UNICODE,
+            \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE,
         );
     }
 
