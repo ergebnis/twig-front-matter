@@ -16,6 +16,9 @@ namespace Ergebnis\Twig\FrontMatter\Test\Unit\Expression;
 use Ergebnis\Twig\FrontMatter\Expression;
 use Ergebnis\Twig\FrontMatter\Test;
 use PHPUnit\Framework;
+use Twig\Environment;
+use Twig\Loader;
+use Twig\Source;
 
 #[Framework\Attributes\CoversClass(Expression\Value::class)]
 final class ValueTest extends Framework\TestCase
@@ -133,7 +136,7 @@ TWIG;
 
         $expected = \json_encode(
             $raw,
-            \JSON_UNESCAPED_UNICODE,
+            \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE,
         );
 
         self::assertSame($expected, $value->toString());
@@ -152,6 +155,72 @@ TXT;
 
         self::assertSame($expected, $value->toString());
         self::assertFalse($value->isMergeable());
+    }
+
+    public function testFromRawReturnsValueWhenRawIsStringWithSlashes(): void
+    {
+        $faker = self::faker();
+
+        $raw = \sprintf(
+            '%s/%s/%s',
+            $faker->word(),
+            $faker->word(),
+            $faker->word(),
+        );
+
+        $value = Expression\Value::fromRaw($raw);
+
+        $expected = <<<TXT
+"{$raw}"
+TXT;
+
+        self::assertSame($expected, $value->toString());
+        self::assertFalse($value->isMergeable());
+    }
+
+    public function testFromRawReturnsValueThatCompilesWithoutDeprecationsWhenRawIsStringWithSlashes(): void
+    {
+        $faker = self::faker();
+
+        $raw = \sprintf(
+            '%s/%s/%s',
+            $faker->word(),
+            $faker->word(),
+            $faker->word(),
+        );
+
+        $value = Expression\Value::fromRaw($raw);
+
+        $source = new Source(
+            <<<TWIG
+{% set foo = {$value->toString()} %}
+TWIG,
+            'template.html.twig',
+        );
+
+        $environment = new Environment(new Loader\ArrayLoader());
+
+        $deprecations = [];
+
+        \set_error_handler(
+            static function (
+                int $level,
+                string $message,
+            ) use (&$deprecations): bool {
+                $deprecations[] = $message;
+
+                return true;
+            },
+            \E_USER_DEPRECATED,
+        );
+
+        try {
+            $environment->parse($environment->tokenize($source));
+        } finally {
+            \restore_error_handler();
+        }
+
+        self::assertSame([], $deprecations);
     }
 
     public function testFromRawReturnsValueWhenRawIsStringWithUmlauts(): void
