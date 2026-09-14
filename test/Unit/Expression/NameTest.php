@@ -175,6 +175,7 @@ final class NameTest extends Framework\TestCase
             'dash' => '-',
             'dollar' => '$',
             'dot' => '.',
+            'line-feed' => "\n",
             'slash' => '/',
             'space' => ' ',
         ];
