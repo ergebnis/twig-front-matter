@@ -44,7 +44,18 @@ TWIG;
         if (\is_array($this->raw)) {
             $keyValuePairs = [];
 
-            foreach ($this->raw as $name => $raw) {
+            foreach ($this->raw as $key => $raw) {
+                /**
+                 * Twig only accepts names and numbers as unquoted keys, so quote string keys.
+                 *
+                 * @see https://twig.symfony.com/doc/3.x/templates.html#literals
+                 */
+                $name = $key;
+
+                if (\is_string($key)) {
+                    $name = self::fromRaw($key)->toString();
+                }
+
                 $value = self::fromRaw($raw);
 
                 $keyValuePairs[] = <<<TWIG
