@@ -38,6 +38,7 @@ pi: 3.14159
 date: 2016-05-27
 empty: ~
 invalid-key: "hmm"
+none: "hmm"
 multiline: |
   Multiple
   Line
@@ -79,6 +80,7 @@ pi: 3.14159
 date: 2016-05-27
 empty: ~
 invalid-key: "hmm"
+none: "hmm"
 multiline: |
   Multiple
   Line

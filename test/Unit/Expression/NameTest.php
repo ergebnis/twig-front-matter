@@ -94,6 +94,47 @@ final class NameTest extends Framework\TestCase
         }
     }
 
+    #[Framework\Attributes\DataProvider('provideReservedValue')]
+    public function testFromStringThrowsInvalidNameWhenValueIsReserved(string $value): void
+    {
+        $this->expectExceptionObject(Exception\InvalidName::reserved($value));
+
+        Expression\Name::fromString($value);
+    }
+
+    /**
+     * @return \Generator<string, array{0: string}>
+     */
+    public static function provideReservedValue(): iterable
+    {
+        $reservedNames = [
+            'false',
+            'none',
+            'null',
+            'true',
+        ];
+
+        foreach ($reservedNames as $reservedName) {
+            $variants = [
+                'lower' => \strtolower($reservedName),
+                'title' => \ucfirst($reservedName),
+                'upper' => \strtoupper($reservedName),
+            ];
+
+            foreach ($variants as $case => $variant) {
+                $key = \sprintf(
+                    '%s-case-%s',
+                    $reservedName,
+                    $case,
+                );
+
+                yield $key => [
+                    $variant,
+                ];
+            }
+        }
+    }
+
     #[Framework\Attributes\DataProvider('provideValidValue')]
     public function testFromStringReturnsNameWhenValueIsValid(string $value): void
     {
