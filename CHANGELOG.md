@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.4.1...main`][1.4.1...main].
 
+### Changed
+
+- Allowed installation on PHP 8.6 ([#529]), by [@localheinz]
+
 ## [`1.4.1`][1.4.1]
 
 For a full diff see [`1.4.0...1.4.1`][1.4.0...1.4.1].
@@ -119,5 +123,6 @@ For a full diff see [`7039e81...1.0.0`][7039e81...1.0.0].
 [#508]: https://github.com/ergebnis/twig-front-matter/pull/508
 [#509]: https://github.com/ergebnis/twig-front-matter/pull/509
 [#510]: https://github.com/ergebnis/twig-front-matter/pull/510
+[#529]: https://github.com/ergebnis/twig-front-matter/pull/529
 
 [@localheinz]: https://github.com/localheinz
