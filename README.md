@@ -9,7 +9,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/twig-front-matter/v/stable)](https://packagist.org/packages/ergebnis/twig-front-matter)
 [![Total Downloads](https://poser.pugx.org/ergebnis/twig-front-matter/downloads)](https://packagist.org/packages/ergebnis/twig-front-matter)
-[![Monthly Downloads](http://poser.pugx.org/ergebnis/twig-front-matter/d/monthly)](https://packagist.org/packages/ergebnis/twig-front-matter)
+[![Monthly Downloads](https://poser.pugx.org/ergebnis/twig-front-matter/d/monthly)](https://packagist.org/packages/ergebnis/twig-front-matter)
 
 This project provides a [`composer`](https://getcomposer.org) package with a [Twig](https://twig.symfony.com) loader for files with [YAML front-matter](https://github.com/ergebnis/front-matter).
 
