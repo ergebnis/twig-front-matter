@@ -34,6 +34,14 @@ return static function (Config\RectorConfig $rectorConfig): void {
         Rector\Rules\Faker\GeneratorPropertyFetchToMethodCallRector::class,
     ]);
 
+    $rectorConfig->ruleWithConfiguration(Rector\Rules\Files\ReferenceNamespacedSymbolsRelativeToNamespacePrefixRector::class, [
+        'discoverNamespacePrefixes' => true,
+        'parentNamespacePrefixes' => [
+            'Ergebnis\Twig\FrontMatter',
+            'Symfony\Component',
+        ],
+    ]);
+
     $rectorConfig->sets([
         PHPUnit\Set\PHPUnitSetList::COMPOSER_BASED,
     ]);
