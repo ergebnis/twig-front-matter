@@ -414,7 +414,6 @@ TWIG,
         $values = [
             'infinity' => \INF,
             'infinity-negative' => -\INF,
-            'not-a-number' => \NAN,
         ];
 
         foreach ($values as $key => $value) {
@@ -422,6 +421,22 @@ TWIG,
                 $value,
             ];
         }
+    }
+
+    public function testFromRawReturnsValueThatRendersWhenRawIsNotANumber(): void
+    {
+        $value = Expression\Value::fromRaw(\NAN);
+
+        $environment = new Environment(new Loader\ArrayLoader([
+            'template.html.twig' => <<<TWIG
+{% set foo = {$value->toString()} %}{{ foo is same as(foo) ? 'number' : 'not-a-number' }}
+TWIG,
+        ]));
+
+        $rendered = $environment->render('template.html.twig');
+
+        self::assertSame('not-a-number', $rendered);
+        self::assertFalse($value->isMergeable());
     }
 
     public function testFromRawReturnsValueWhenRawIsStringWithUmlauts(): void
