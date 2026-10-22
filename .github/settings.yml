@@ -84,7 +84,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: "🌱 + 👀 Provides a composer package with a Twig loader for files with YAML front-matter."
+  description: "🌱 Provides a composer package with a Twig loader for files with YAML front-matter."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
   has_discussions: false
