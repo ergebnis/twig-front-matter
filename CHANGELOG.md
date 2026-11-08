@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.5.0...main`][1.5.0...main].
 
+### Security
+
+- Required `ergebnis/front-matter:^3.7.1` to address security vulnerability advisories ([#569]), by [@localheinz]
+
 ## [`1.5.0`][1.5.0]
 
 For a full diff see [`1.4.1...1.5.0`][1.4.1...1.5.0].
@@ -130,5 +134,6 @@ For a full diff see [`7039e81...1.0.0`][7039e81...1.0.0].
 [#509]: https://github.com/ergebnis/twig-front-matter/pull/509
 [#510]: https://github.com/ergebnis/twig-front-matter/pull/510
 [#529]: https://github.com/ergebnis/twig-front-matter/pull/529
+[#569]: https://github.com/ergebnis/twig-front-matter/pull/569
 
 [@localheinz]: https://github.com/localheinz
