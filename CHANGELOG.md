@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.5.0...main`][1.5.0...main].
 
+### Added
+
+- Added support for PHP 8.6 ([#579]), by [@localheinz]
+
 ### Security
 
 - Required `ergebnis/front-matter:^3.7.1` to address security vulnerability advisories ([#569]), by [@localheinz]
@@ -135,5 +139,6 @@ For a full diff see [`7039e81...1.0.0`][7039e81...1.0.0].
 [#510]: https://github.com/ergebnis/twig-front-matter/pull/510
 [#529]: https://github.com/ergebnis/twig-front-matter/pull/529
 [#569]: https://github.com/ergebnis/twig-front-matter/pull/569
+[#579]: https://github.com/ergebnis/twig-front-matter/pull/579
 
 [@localheinz]: https://github.com/localheinz
