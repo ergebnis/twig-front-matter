@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Expression;
 
-use Ergebnis\Twig\FrontMatter\Exception;
+use Ergebnis\Twig\FrontMatter;
 
 final class Name
 {
@@ -22,12 +22,12 @@ final class Name
     }
 
     /**
-     * @throws Exception\InvalidName
+     * @throws FrontMatter\Exception\InvalidName
      */
     public static function fromString(string $value): self
     {
         if (1 !== \preg_match('/^[a-z][0-9a-z_]*\z/i', $value)) {
-            throw Exception\InvalidName::invalid($value);
+            throw FrontMatter\Exception\InvalidName::invalid($value);
         }
 
         /**
@@ -41,7 +41,7 @@ final class Name
         ];
 
         if (\in_array(\strtolower($value), $reservedNames, true)) {
-            throw Exception\InvalidName::reserved($value);
+            throw FrontMatter\Exception\InvalidName::reserved($value);
         }
 
         return new self($value);

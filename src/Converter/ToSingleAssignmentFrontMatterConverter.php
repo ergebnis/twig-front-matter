@@ -13,21 +13,21 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Converter;
 
-use Ergebnis\Twig\FrontMatter\Expression;
+use Ergebnis\Twig\FrontMatter;
 
 final class ToSingleAssignmentFrontMatterConverter implements FrontMatterConverter
 {
     public function __construct(
-        private readonly Expression\Name $name,
+        private readonly FrontMatter\Expression\Name $name,
         private readonly bool $force,
     ) {
     }
 
     public function convert(array $data): string
     {
-        $assignment = Expression\Assignment::create(
+        $assignment = FrontMatter\Expression\Assignment::create(
             $this->name,
-            Expression\Value::fromRaw($data),
+            FrontMatter\Expression\Value::fromRaw($data),
             $this->force,
         );
 

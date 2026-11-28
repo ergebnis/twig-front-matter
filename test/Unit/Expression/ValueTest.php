@@ -13,21 +13,20 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Test\Unit\Expression;
 
-use Ergebnis\Twig\FrontMatter\Expression;
-use Ergebnis\Twig\FrontMatter\Test;
+use Ergebnis\Twig\FrontMatter;
 use PHPUnit\Framework;
 use Twig\Environment;
 use Twig\Loader;
 use Twig\Source;
 
-#[Framework\Attributes\CoversClass(Expression\Value::class)]
+#[Framework\Attributes\CoversClass(FrontMatter\Expression\Value::class)]
 final class ValueTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FrontMatter\Test\Util\Helper;
 
     public function testFromRawReturnsValueWhenRawIsNull(): void
     {
-        $value = Expression\Value::fromRaw(null);
+        $value = FrontMatter\Expression\Value::fromRaw(null);
 
         self::assertSame('null', $value->toString());
         self::assertFalse($value->isMergeable());
@@ -35,7 +34,7 @@ final class ValueTest extends Framework\TestCase
 
     public function testFromRawReturnsValueWhenRawIsFalse(): void
     {
-        $value = Expression\Value::fromRaw(false);
+        $value = FrontMatter\Expression\Value::fromRaw(false);
 
         self::assertSame('false', $value->toString());
         self::assertFalse($value->isMergeable());
@@ -43,7 +42,7 @@ final class ValueTest extends Framework\TestCase
 
     public function testFromRawReturnsValueWhenRawIsTrue(): void
     {
-        $value = Expression\Value::fromRaw(true);
+        $value = FrontMatter\Expression\Value::fromRaw(true);
 
         self::assertSame('true', $value->toString());
         self::assertFalse($value->isMergeable());
@@ -53,7 +52,7 @@ final class ValueTest extends Framework\TestCase
     {
         $raw = self::faker()->numberBetween();
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         self::assertSame((string) $raw, $value->toString());
         self::assertFalse($value->isMergeable());
@@ -63,7 +62,7 @@ final class ValueTest extends Framework\TestCase
     {
         $raw = self::faker()->randomFloat(5);
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         self::assertSame((string) $raw, $value->toString());
         self::assertFalse($value->isMergeable());
@@ -81,7 +80,7 @@ final class ValueTest extends Framework\TestCase
             'string' => 'foo',
         ];
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $expected = <<<'TWIG'
 { "bool-false": false, "bool-true": true, "dateTime": (1610817171|date_modify('0sec')), "float": 3.14159, "int": 9000, "null": null, "string": "foo" }
@@ -95,7 +94,7 @@ TWIG;
     {
         $raw = self::faker()->dateTime();
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $expected = <<<TWIG
 ({$raw->getTimestamp()}|date_modify('0sec'))
@@ -109,7 +108,7 @@ TWIG;
     {
         $raw = \DateTimeImmutable::createFromMutable(self::faker()->dateTime());
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $expected = <<<TWIG
 ({$raw->getTimestamp()}|date_modify('0sec'))
@@ -132,7 +131,7 @@ TWIG;
             'string-with-umlaut' => 'My name is Andreas Möller, and I am a self-employed Software Engineer and Consultant from Berlin, Germany. What can I do for you?',
         ];
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $expected = \json_encode(
             $raw,
@@ -147,7 +146,7 @@ TWIG;
     {
         $raw = self::faker()->sentence();
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $expected = <<<TXT
 "{$raw}"
@@ -168,7 +167,7 @@ TXT;
             $faker->word(),
         );
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $expected = <<<TXT
 "{$raw}"
@@ -189,7 +188,7 @@ TXT;
             $faker->word(),
         );
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $source = new Source(
             <<<TWIG
@@ -226,7 +225,7 @@ TWIG,
     #[Framework\Attributes\DataProvider('provideStringWithCharactersThatJsonEncodesWithEscapeSequencesNotSupportedByTwig')]
     public function testFromRawReturnsValueThatRendersWithoutDeprecationsWhenRawIsStringWithCharactersThatJsonEncodesWithEscapeSequencesNotSupportedByTwig(string $raw): void
     {
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $environment = new Environment(
             new Loader\ArrayLoader([
@@ -317,7 +316,7 @@ TWIG,
             $faker->word(),
         );
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $environment = new Environment(
             new Loader\ArrayLoader([
@@ -345,7 +344,7 @@ TWIG,
             $key => self::faker()->sentence(),
         ];
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $environment = new Environment(
             new Loader\ArrayLoader([
@@ -392,7 +391,7 @@ TWIG,
     #[Framework\Attributes\DataProvider('provideFloatThatJsonCanNotEncode')]
     public function testFromRawReturnsValueThatRendersWhenRawIsFloatThatJsonCanNotEncode(float $raw): void
     {
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $environment = new Environment(new Loader\ArrayLoader([
             'template.html.twig' => <<<TWIG
@@ -425,7 +424,7 @@ TWIG,
 
     public function testFromRawReturnsValueThatRendersWhenRawIsNotANumber(): void
     {
-        $value = Expression\Value::fromRaw(\NAN);
+        $value = FrontMatter\Expression\Value::fromRaw(\NAN);
 
         $environment = new Environment(new Loader\ArrayLoader([
             'template.html.twig' => <<<TWIG
@@ -443,7 +442,7 @@ TWIG,
     {
         $raw = 'My name is Andreas Möller, and I am a self-employed Software Engineer and Consultant from Berlin, Germany. What can I do for you?';
 
-        $value = Expression\Value::fromRaw($raw);
+        $value = FrontMatter\Expression\Value::fromRaw($raw);
 
         $expected = <<<TXT
 "{$raw}"

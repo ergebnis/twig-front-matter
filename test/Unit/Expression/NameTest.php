@@ -14,25 +14,23 @@ declare(strict_types=1);
 namespace Ergebnis\Twig\FrontMatter\Test\Unit\Expression;
 
 use Ergebnis\DataProvider;
-use Ergebnis\Twig\FrontMatter\Exception;
-use Ergebnis\Twig\FrontMatter\Expression;
-use Ergebnis\Twig\FrontMatter\Test;
+use Ergebnis\Twig\FrontMatter;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Expression\Name::class)]
-#[Framework\Attributes\UsesClass(Exception\InvalidName::class)]
+#[Framework\Attributes\CoversClass(FrontMatter\Expression\Name::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Exception\InvalidName::class)]
 final class NameTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FrontMatter\Test\Util\Helper;
 
     #[Framework\Attributes\DataProvider('provideInvalidValue')]
     #[Framework\Attributes\DataProviderExternal(DataProvider\StringProvider::class, 'blank')]
     #[Framework\Attributes\DataProviderExternal(DataProvider\StringProvider::class, 'empty')]
     public function testFromStringRejectsInvalidValue(string $value): void
     {
-        $this->expectException(Exception\InvalidName::class);
+        $this->expectException(FrontMatter\Exception\InvalidName::class);
 
-        Expression\Name::fromString($value);
+        FrontMatter\Expression\Name::fromString($value);
     }
 
     /**
@@ -97,9 +95,9 @@ final class NameTest extends Framework\TestCase
     #[Framework\Attributes\DataProvider('provideReservedValue')]
     public function testFromStringThrowsInvalidNameWhenValueIsReserved(string $value): void
     {
-        $this->expectExceptionObject(Exception\InvalidName::reserved($value));
+        $this->expectExceptionObject(FrontMatter\Exception\InvalidName::reserved($value));
 
-        Expression\Name::fromString($value);
+        FrontMatter\Expression\Name::fromString($value);
     }
 
     /**
@@ -138,7 +136,7 @@ final class NameTest extends Framework\TestCase
     #[Framework\Attributes\DataProvider('provideValidValue')]
     public function testFromStringReturnsNameWhenValueIsValid(string $value): void
     {
-        $name = Expression\Name::fromString($value);
+        $name = FrontMatter\Expression\Name::fromString($value);
 
         self::assertSame($value, $name->toString());
     }

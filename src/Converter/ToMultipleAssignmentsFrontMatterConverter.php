@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Converter;
 
-use Ergebnis\Twig\FrontMatter\Expression;
+use Ergebnis\Twig\FrontMatter;
 
 final class ToMultipleAssignmentsFrontMatterConverter implements FrontMatterConverter
 {
@@ -27,19 +27,19 @@ final class ToMultipleAssignmentsFrontMatterConverter implements FrontMatterConv
 
         foreach ($data as $key => $value) {
             try {
-                $name = Expression\Name::fromString($key);
+                $name = FrontMatter\Expression\Name::fromString($key);
             } catch (\InvalidArgumentException) {
                 continue;
             }
 
-            $assignments[] = Expression\Assignment::create(
+            $assignments[] = FrontMatter\Expression\Assignment::create(
                 $name,
-                Expression\Value::fromRaw($value),
+                FrontMatter\Expression\Value::fromRaw($value),
                 $this->force,
             );
         }
 
-        return \implode("\n", \array_map(static function (Expression\Assignment $assignment): string {
+        return \implode("\n", \array_map(static function (FrontMatter\Expression\Assignment $assignment): string {
             return $assignment->toString();
         }, $assignments));
     }

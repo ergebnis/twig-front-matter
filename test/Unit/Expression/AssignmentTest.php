@@ -13,29 +13,28 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Test\Unit\Expression;
 
-use Ergebnis\Twig\FrontMatter\Expression;
-use Ergebnis\Twig\FrontMatter\Test;
+use Ergebnis\Twig\FrontMatter;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Expression\Assignment::class)]
-#[Framework\Attributes\UsesClass(Expression\Name::class)]
-#[Framework\Attributes\UsesClass(Expression\Value::class)]
+#[Framework\Attributes\CoversClass(FrontMatter\Expression\Assignment::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Expression\Name::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Expression\Value::class)]
 final class AssignmentTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FrontMatter\Test\Util\Helper;
 
     public function testCreateReturnsAssignmentWhenForceIsTrueAndValueIsMergeable(): void
     {
         $faker = self::faker();
 
-        $name = Expression\Name::fromString($faker->word());
-        $value = Expression\Value::fromRaw([
-            'words' => $faker->words(),
-            'dateTime' => $faker->dateTime(),
+        $name = FrontMatter\Expression\Name::fromString($faker->word());
+        $value = FrontMatter\Expression\Value::fromRaw([
             'bool' => $faker->boolean(),
+            'dateTime' => $faker->dateTime(),
+            'words' => $faker->words(),
         ]);
 
-        $assignment = Expression\Assignment::create(
+        $assignment = FrontMatter\Expression\Assignment::create(
             $name,
             $value,
             true,
@@ -52,10 +51,10 @@ TWIG;
     {
         $faker = self::faker();
 
-        $name = Expression\Name::fromString($faker->word());
-        $value = Expression\Value::fromRaw($faker->sentence());
+        $name = FrontMatter\Expression\Name::fromString($faker->word());
+        $value = FrontMatter\Expression\Value::fromRaw($faker->sentence());
 
-        $assignment = Expression\Assignment::create(
+        $assignment = FrontMatter\Expression\Assignment::create(
             $name,
             $value,
             true,
@@ -72,14 +71,14 @@ TWIG;
     {
         $faker = self::faker();
 
-        $name = Expression\Name::fromString($faker->word());
-        $value = Expression\Value::fromRaw([
-            'words' => $faker->words(),
-            'dateTime' => $faker->dateTime(),
+        $name = FrontMatter\Expression\Name::fromString($faker->word());
+        $value = FrontMatter\Expression\Value::fromRaw([
             'bool' => $faker->boolean(),
+            'dateTime' => $faker->dateTime(),
+            'words' => $faker->words(),
         ]);
 
-        $assignment = Expression\Assignment::create(
+        $assignment = FrontMatter\Expression\Assignment::create(
             $name,
             $value,
             false,
@@ -96,10 +95,10 @@ TWIG;
     {
         $faker = self::faker();
 
-        $name = Expression\Name::fromString($faker->word());
-        $value = Expression\Value::fromRaw($faker->sentence());
+        $name = FrontMatter\Expression\Name::fromString($faker->word());
+        $value = FrontMatter\Expression\Value::fromRaw($faker->sentence());
 
-        $assignment = Expression\Assignment::create(
+        $assignment = FrontMatter\Expression\Assignment::create(
             $name,
             $value,
             false,
