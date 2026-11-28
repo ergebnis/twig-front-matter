@@ -13,19 +13,17 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Test\Unit\Converter;
 
-use Ergebnis\Twig\FrontMatter\Converter;
-use Ergebnis\Twig\FrontMatter\Expression;
-use Ergebnis\Twig\FrontMatter\Test;
+use Ergebnis\Twig\FrontMatter;
 use PHPUnit\Framework;
 use Symfony\Component\Yaml;
 
-#[Framework\Attributes\CoversClass(Converter\ToSingleAssignmentFrontMatterConverter::class)]
-#[Framework\Attributes\UsesClass(Expression\Assignment::class)]
-#[Framework\Attributes\UsesClass(Expression\Name::class)]
-#[Framework\Attributes\UsesClass(Expression\Value::class)]
+#[Framework\Attributes\CoversClass(FrontMatter\Converter\ToSingleAssignmentFrontMatterConverter::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Expression\Assignment::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Expression\Name::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Expression\Value::class)]
 final class ToSingleAssignmentFrontMatterConverterTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FrontMatter\Test\Util\Helper;
 
     public function testConvertReturnsStringWithSingleTwigAssignmentWhenForceIsTrue(): void
     {
@@ -55,8 +53,8 @@ YAML;
             Yaml\Yaml::PARSE_DATETIME,
         );
 
-        $frontMatterConverter = new Converter\ToSingleAssignmentFrontMatterConverter(
-            Expression\Name::fromString($name),
+        $frontMatterConverter = new FrontMatter\Converter\ToSingleAssignmentFrontMatterConverter(
+            FrontMatter\Expression\Name::fromString($name),
             true,
         );
 
@@ -95,8 +93,8 @@ YAML;
             Yaml\Yaml::PARSE_DATETIME,
         );
 
-        $frontMatterConverter = new Converter\ToSingleAssignmentFrontMatterConverter(
-            Expression\Name::fromString($name),
+        $frontMatterConverter = new FrontMatter\Converter\ToSingleAssignmentFrontMatterConverter(
+            FrontMatter\Expression\Name::fromString($name),
             false,
         );
 

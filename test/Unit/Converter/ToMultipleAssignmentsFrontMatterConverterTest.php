@@ -13,21 +13,18 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Test\Unit\Converter;
 
-use Ergebnis\Twig\FrontMatter\Converter;
-use Ergebnis\Twig\FrontMatter\Exception;
-use Ergebnis\Twig\FrontMatter\Expression;
-use Ergebnis\Twig\FrontMatter\Test;
+use Ergebnis\Twig\FrontMatter;
 use PHPUnit\Framework;
 use Symfony\Component\Yaml;
 
-#[Framework\Attributes\CoversClass(Converter\ToMultipleAssignmentsFrontMatterConverter::class)]
-#[Framework\Attributes\UsesClass(Expression\Assignment::class)]
-#[Framework\Attributes\UsesClass(Expression\Name::class)]
-#[Framework\Attributes\UsesClass(Expression\Value::class)]
-#[Framework\Attributes\UsesClass(Exception\InvalidName::class)]
+#[Framework\Attributes\CoversClass(FrontMatter\Converter\ToMultipleAssignmentsFrontMatterConverter::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Expression\Assignment::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Expression\Name::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Expression\Value::class)]
+#[Framework\Attributes\UsesClass(FrontMatter\Exception\InvalidName::class)]
 final class ToMultipleAssignmentsFrontMatterConverterTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FrontMatter\Test\Util\Helper;
 
     public function testConvertReturnsStringWithMultipleTwigAssignmentsWhenForceIsTrue(): void
     {
@@ -56,7 +53,7 @@ YAML;
             Yaml\Yaml::PARSE_DATETIME,
         );
 
-        $frontMatterConverter = new Converter\ToMultipleAssignmentsFrontMatterConverter(true);
+        $frontMatterConverter = new FrontMatter\Converter\ToMultipleAssignmentsFrontMatterConverter(true);
 
         $expected = <<<'TWIG'
 {% set foo = "bar" %}
@@ -98,7 +95,7 @@ YAML;
             Yaml\Yaml::PARSE_DATETIME,
         );
 
-        $frontMatterConverter = new Converter\ToMultipleAssignmentsFrontMatterConverter(false);
+        $frontMatterConverter = new FrontMatter\Converter\ToMultipleAssignmentsFrontMatterConverter(false);
 
         $expected = <<<'TWIG'
 {% set foo = foo is defined ? foo : "bar" %}

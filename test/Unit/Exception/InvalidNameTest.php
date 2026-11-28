@@ -13,20 +13,19 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Test\Unit\Exception;
 
-use Ergebnis\Twig\FrontMatter\Exception;
-use Ergebnis\Twig\FrontMatter\Test;
+use Ergebnis\Twig\FrontMatter;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\InvalidName::class)]
+#[Framework\Attributes\CoversClass(FrontMatter\Exception\InvalidName::class)]
 final class InvalidNameTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FrontMatter\Test\Util\Helper;
 
     public function testInvalidReturnsException(): void
     {
         $value = self::faker()->word();
 
-        $exception = Exception\InvalidName::invalid($value);
+        $exception = FrontMatter\Exception\InvalidName::invalid($value);
 
         $expected = \sprintf(
             'Value "%s" can not be used as value for a parameter name.',
@@ -40,7 +39,7 @@ final class InvalidNameTest extends Framework\TestCase
     {
         $value = self::faker()->word();
 
-        $exception = Exception\InvalidName::reserved($value);
+        $exception = FrontMatter\Exception\InvalidName::reserved($value);
 
         $expected = \sprintf(
             'Value "%s" is reserved and can not be used as value for a parameter name.',

@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\Twig\FrontMatter\Test\Unit\Converter;
 
-use Ergebnis\Twig\FrontMatter\Converter;
+use Ergebnis\Twig\FrontMatter;
 use PHPUnit\Framework;
 use Symfony\Component\Yaml;
 
-#[Framework\Attributes\CoversClass(Converter\NullFrontMatterConverter::class)]
+#[Framework\Attributes\CoversClass(FrontMatter\Converter\NullFrontMatterConverter::class)]
 final class NullFrontMatterConverterTest extends Framework\TestCase
 {
     public function testConvertReturnsEmptyString(): void
@@ -46,7 +46,7 @@ YAML;
             Yaml\Yaml::PARSE_DATETIME,
         );
 
-        $frontMatterConverter = new Converter\NullFrontMatterConverter();
+        $frontMatterConverter = new FrontMatter\Converter\NullFrontMatterConverter();
 
         self::assertSame('', $frontMatterConverter->convert($data));
     }
